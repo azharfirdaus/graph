@@ -3,6 +3,7 @@ package v2
 type Vertex[T any] struct {
 	value       T
 	adjacencies []*Vertex[T]
+	weight      []float64
 	degreeSize  int
 }
 
@@ -13,8 +14,9 @@ func New[T any](value T) Vertex[T] {
 	}
 }
 
-func (v *Vertex[T]) AddAdjacency(neighbor *Vertex[T]) {
+func (v *Vertex[T]) AddAdjacency(neighbor *Vertex[T], weight float64) {
 	v.adjacencies = append(v.adjacencies, neighbor)
+	v.weight = append(v.weight, weight)
 	v.degreeSize += 1
 }
 
