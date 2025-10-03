@@ -1,4 +1,4 @@
-package undirected_v2
+package v2
 
 // build graph by given size and array of vertices
 //

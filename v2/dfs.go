@@ -1,4 +1,4 @@
-package undirected_v2
+package v2
 
 func TravelDfs[T comparable](size int, start *Vertex[T]) []Vertex[T] {
 	discovered := make(map[T]*Vertex[T], size)

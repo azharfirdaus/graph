@@ -1,4 +1,4 @@
-package undirected_v2
+package v2
 
 import "errors"
 
