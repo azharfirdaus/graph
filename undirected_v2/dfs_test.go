@@ -6,7 +6,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestTravelBfs(t *testing.T) {
+func TestTravelDfs(t *testing.T) {
 	bandaAcehVertex := New("Banda Aceh")
 	medanVertex := New("Medan")
 	pekanbaruVertex := New("Pekanbaru")
@@ -52,17 +52,17 @@ func TestTravelBfs(t *testing.T) {
 	assert.Nil(t, err)
 	assert.NotNil(t, graph)
 
-	result := TravelBfs(graph.Size(), &bandaAcehVertex)
+	result := TravelDfs(graph.Size(), &bandaAcehVertex)
 
 	assert.Equal(t, len(vertices), len(result))
 	assert.Equal(t, "Banda Aceh", result[0].GetValue())
 	assert.Equal(t, "Medan", result[1].GetValue())
-	assert.Equal(t, "Pekanbaru", result[2].GetValue())
-	assert.Equal(t, "Padang", result[3].GetValue())
-	assert.Equal(t, "Batam", result[4].GetValue())
-	assert.Equal(t, "Jambi", result[5].GetValue())
-	assert.Equal(t, "Bengkulu", result[6].GetValue())
-	assert.Equal(t, "Palembang", result[7].GetValue())
-	assert.Equal(t, "Banda Lampung", result[8].GetValue())
-	assert.Equal(t, "Pangkal Pinang", result[9].GetValue())
+	assert.Equal(t, "Padang", result[2].GetValue())
+	assert.Equal(t, "Bengkulu", result[3].GetValue())
+	assert.Equal(t, "Banda Lampung", result[4].GetValue())
+	assert.Equal(t, "Palembang", result[5].GetValue())
+	assert.Equal(t, "Pangkal Pinang", result[6].GetValue())
+	assert.Equal(t, "Jambi", result[7].GetValue())
+	assert.Equal(t, "Pekanbaru", result[8].GetValue())
+	assert.Equal(t, "Batam", result[9].GetValue())
 }

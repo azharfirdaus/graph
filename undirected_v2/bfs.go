@@ -21,12 +21,12 @@ func TravelBfs[T comparable](size int, start *Vertex[T]) []Vertex[T] {
 
 	for len(queue) > 0 {
 		current := queue[0]
-		neighbors := current.GetNeighbors()
-		for _, neighbor := range neighbors {
-			_, ok := discovered[neighbor.GetValue()]
+		adjacencies := current.GetAdjacencies()
+		for _, adjacency := range adjacencies {
+			_, ok := discovered[adjacency.GetValue()]
 			if !ok {
-				discovered[neighbor.GetValue()] = neighbor
-				queue = append(queue, neighbor)
+				discovered[adjacency.GetValue()] = adjacency
+				queue = append(queue, adjacency)
 			}
 		}
 

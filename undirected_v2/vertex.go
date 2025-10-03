@@ -1,9 +1,9 @@
 package undirected_v2
 
 type Vertex[T any] struct {
-	value      T
-	neighbors  []*Vertex[T]
-	degreeSize int
+	value       T
+	adjacencies []*Vertex[T]
+	degreeSize  int
 }
 
 func New[T any](value T) Vertex[T] {
@@ -13,8 +13,8 @@ func New[T any](value T) Vertex[T] {
 	}
 }
 
-func (v *Vertex[T]) AddNeighbor(neighbor *Vertex[T]) {
-	v.neighbors = append(v.neighbors, neighbor)
+func (v *Vertex[T]) AddAdjacency(neighbor *Vertex[T]) {
+	v.adjacencies = append(v.adjacencies, neighbor)
 	v.degreeSize += 1
 }
 
@@ -30,6 +30,6 @@ func (v *Vertex[T]) GetEdgeSize() int {
 	return v.degreeSize / 2
 }
 
-func (v *Vertex[T]) GetNeighbors() []*Vertex[T] {
-	return v.neighbors
+func (v *Vertex[T]) GetAdjacencies() []*Vertex[T] {
+	return v.adjacencies
 }
