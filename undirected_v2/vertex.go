@@ -29,3 +29,7 @@ func (v *Vertex[T]) GetDegreeSize() int {
 func (v *Vertex[T]) GetEdgeSize() int {
 	return v.degreeSize / 2
 }
+
+func (v *Vertex[T]) GetNeighbors() []*Vertex[T] {
+	return v.neighbors
+}
