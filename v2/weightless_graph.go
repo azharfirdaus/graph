@@ -2,7 +2,7 @@ package undirected_v2
 
 import "errors"
 
-type Graph[T any] struct {
+type WeightlessGraph[T any] struct {
 	size       int
 	vertices   []*Vertex[T]
 	degreeSize int
@@ -16,7 +16,7 @@ type Graph[T any] struct {
 // space-complexity O(V)
 //
 //	where V is the number of vertices
-func Build[T any](size int, vertices []*Vertex[T]) (*Graph[T], error) {
+func Build[T any](size int, vertices []*Vertex[T]) (*WeightlessGraph[T], error) {
 	if size != len(vertices) {
 		return nil, errors.New("defined size is not equal to vertices size")
 	}
@@ -26,7 +26,7 @@ func Build[T any](size int, vertices []*Vertex[T]) (*Graph[T], error) {
 		degreeSize += vertex.GetDegreeSize()
 	}
 
-	return &Graph[T]{
+	return &WeightlessGraph[T]{
 		size:       size,
 		vertices:   vertices,
 		degreeSize: degreeSize,
@@ -36,20 +36,20 @@ func Build[T any](size int, vertices []*Vertex[T]) (*Graph[T], error) {
 // get number of vertex
 // time-complexity O(1)
 // space-complexity O(1)
-func (g *Graph[T]) Size() int {
+func (g *WeightlessGraph[T]) Size() int {
 	return g.size
 }
 
 // get number of degree
 // time-complexity O(1)
 // space-complexity O(1)
-func (g *Graph[T]) GetDegreeSize() int {
+func (g *WeightlessGraph[T]) GetDegreeSize() int {
 	return g.degreeSize
 }
 
 // get number of edge
 // time-complexity O(1)
 // space-complexity O(1)
-func (g *Graph[T]) GetEdgeSize() int {
+func (g *WeightlessGraph[T]) GetEdgeSize() int {
 	return g.degreeSize / 2
 }
