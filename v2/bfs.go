@@ -1,6 +1,9 @@
 package v2
 
-// build graph by given size and array of vertices
+type StackBFSTraversal[T comparable] struct {
+}
+
+// travel from given vertex using Breadth-First Search
 //
 // time-complexity O(V + E)
 //
@@ -10,7 +13,7 @@ package v2
 // space-complexity O(V)
 //
 //	where V is the number of vertices
-func TravelBfs[T comparable](size int, start *Vertex[T]) []Vertex[T] {
+func (s *StackBFSTraversal[T]) Travel(size int, start *Vertex[T]) []Vertex[T] {
 	discovered := make(map[T]*Vertex[T], size)
 	discovered[start.GetValue()] = start
 
